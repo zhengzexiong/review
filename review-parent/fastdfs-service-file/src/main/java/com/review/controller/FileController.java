@@ -18,8 +18,6 @@ import java.io.IOException;
  * @create 2020-10-01 14:22
  */
 @RestController
-//跨域访问
-@CrossOrigin
 public class FileController {
     /**
      * @param file 文件
