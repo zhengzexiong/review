@@ -1,7 +1,6 @@
 package com.review.util;
 
 import com.review.file.FastDFSFile;
-import org.csource.common.MyException;
 import org.csource.common.NameValuePair;
 import org.csource.fastdfs.ClientGlobal;
 import org.csource.fastdfs.StorageClient;
@@ -17,8 +16,8 @@ import java.io.IOException;
  * @create 2020-10-01 13:56
  */
 public class FastDFSClient {
-    /**
-     * @Description 初始化FastDFS配置
+    /*
+      @Description 初始化FastDFS配置
      */
     static {
         String path = "fdfs_client.conf";
@@ -34,7 +33,7 @@ public class FastDFSClient {
      * @param fastDFSFile 附件信息
      * @return uploadResult.string[]
      */
-    public String[] uploadFile(FastDFSFile fastDFSFile) {
+    public static String[] uploadFile(FastDFSFile fastDFSFile) {
         try {
             //获取文件相关属性
             byte[] file_buff = fastDFSFile.getContent();
@@ -48,8 +47,7 @@ public class FastDFSClient {
             //3. 创建存储服务器客户端
             StorageClient storageClient = new StorageClient(trackerServer, null);
             //4. 文件上传
-            String[] uploadResult = storageClient.upload_file(file_buff, ext_name, meta_list);
-            return uploadResult;
+            return storageClient.upload_file(file_buff, ext_name, meta_list);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -65,8 +63,7 @@ public class FastDFSClient {
             //2. 获取跟踪服务器地址
             String hostAddress = trackerServer.getInetSocketAddress().getAddress().getHostAddress();
             int port = ClientGlobal.getG_tracker_http_port();
-            String url = "http://" + hostAddress + ":" + port;
-            return url;
+            return "http://" + hostAddress + ":" + port;
         } catch (IOException e) {
             e.printStackTrace();
         }
