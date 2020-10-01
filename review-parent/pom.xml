@@ -6,7 +6,11 @@
 
     <groupId>com.review</groupId>
     <artifactId>review-parent</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>fastdfs-service-file</module>
+    </modules>
 
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>
