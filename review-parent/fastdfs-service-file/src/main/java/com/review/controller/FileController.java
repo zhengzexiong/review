@@ -46,8 +46,12 @@ public class FileController {
      */
     @PostMapping("/uploads")
     public String uploads(MultipartFile file) throws IOException {
+        //创建封装文件的对象信息
+        //获取文件名字
         String name = file.getOriginalFilename();
+        //获取文件内容
         byte[] content = file.getBytes();
+        //获取文件扩展名
         String ext = FilenameUtils.getExtension(name);
         FastDFSFile fastDFSFile = new FastDFSFile(name, content, ext);
         //调用文件上传，只包含组名称+所在的远程服务器路径
