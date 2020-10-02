@@ -142,7 +142,7 @@ public class FastDFSClient {
 
     /**
      * @param groupName 组名
-     * @return 返回存储服务器嘻嘻
+     * @return 返回存储服务器信息
      * @Description 获取单个存储服务器信息
      */
     public static StorageServer getStorage(String groupName) {
@@ -162,6 +162,12 @@ public class FastDFSClient {
         return null;
     }
 
+    /**
+     * @param groupName 组名
+     * @param filename  文件
+     * @return 返回存储服务器信息
+     * @Description 获取单个存储服务器信息
+     */
     public static ServerInfo[] getStorages(String groupName, String filename) {
         try {
             //创建跟踪服务器的客户端
