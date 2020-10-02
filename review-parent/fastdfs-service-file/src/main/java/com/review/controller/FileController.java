@@ -59,7 +59,7 @@ public class FileController {
         //拼接该附件的完整路径
         String path = FastDFSClient.getTrackerUrl();
         //http://192.168.211.129:8080/
-        return path + "/" + (result != null ? result[0] : " ") + "/" + (result != null ? result[1] : " ");
+        return path + "/" + result[0]+ "/" + result[1];
 
     }
 
