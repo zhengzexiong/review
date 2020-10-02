@@ -34,25 +34,22 @@ public class FastDFSClient {
      */
     public static String[] uploadFile(FastDFSFile fastDFSFile) {
         try {
-            //获取文件相关属性
-            //附件内容
-            byte[] file_buff = fastDFSFile.getContent();
-            //附件扩展名
-            String ext_name = fastDFSFile.getExt();
-            //附件备注
-            NameValuePair[] meta_list = new NameValuePair[1];
-            //附件作者
+            byte[] file_buff = fastDFSFile.getContent();        // 附件内容
+            String file_ext_name = fastDFSFile.getExt();         // 附件扩展名称
+            NameValuePair[] meta_list = new NameValuePair[1];   // 附件备注
             meta_list[0] = new NameValuePair(fastDFSFile.getAuthor());
 
-
-            //1. 创建跟踪服务器客户端
+            // 创建跟踪服务器的客户端
             TrackerClient trackerClient = new TrackerClient();
-            //2. 获取跟踪服务器
+            // 由该客户端获取服务器端
             TrackerServer trackerServer = trackerClient.getConnection();
-            //3. 创建存储服务器客户端
+            // 创建存储服务器客户端
             StorageClient storageClient = new StorageClient(trackerServer, null);
-            //4. 文件上传
-            return storageClient.upload_file(file_buff, ext_name, meta_list);
+            // 附件上传操作
+            // 组名：/group1
+            // 附件名称：/M00/00/00/wKjThF0DBzaAP23MAAXz2mMp9oM26.jpeg
+            String[] result = storageClient.upload_file(file_buff, file_ext_name, meta_list);
+            return result;
         } catch (Exception e) {
             e.printStackTrace();
         }

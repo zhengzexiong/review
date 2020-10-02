@@ -33,6 +33,9 @@ public class FastDFSFile implements Serializable {
         this.ext = ext;
     }
 
+    public FastDFSFile() {
+    }
+
     public String getName() {
         return name;
     }

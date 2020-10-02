@@ -35,7 +35,7 @@ public class FileController {
         String[] uploads = FastDFSClient.uploadFile(fastDFSFile);
         //组装文件上传地址
         //return FastDFSClient.getTrackerUrl()+"/"+uploads[0]+"/"+uploads[1];   文件上传地址，先判断地址是否为空，防止乱跑
-        return FastDFSClient.getTrackerUrl() + "/" + (uploads != null ? uploads[0] : " ") + "/" + (uploads != null ? uploads[1] : " ");
+        return FastDFSClient.getTrackerUrl() + "/" + uploads[0] + "/" + uploads[1];
     }
 
     /**
